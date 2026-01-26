@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_CONTACT_ENDPOINT: ${{ secrets.PUBLIC_CONTACT_ENDPOINT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,6 +41,12 @@ jobs:
           echo "SITE=https://$OWNER.github.io/$NAME" >> $GITHUB_ENV
           echo "BASE_PATH=/$NAME/" >> $GITHUB_ENV
 
+      - name: Disable internal API for static Pages
+        if: ${{ env.PUBLIC_CONTACT_ENDPOINT != '' }}
+        run: |
+          echo "PUBLIC_CONTACT_ENDPOINT is set. Disabling internal API route for static build."
+          mv src/pages/api/contact.ts src/pages/api/contact.ts.disabled
+
       - name: Build
         run: npm run build
         env:
@@ -50,13 +58,7 @@ jobs:
           MAILERSEND_FROM_NAME: ${{ secrets.MAILERSEND_FROM_NAME }}
           MAILERSEND_TO_EMAIL: ${{ secrets.MAILERSEND_TO_EMAIL }}
           # Si usas un endpoint externo para contacto:
-          PUBLIC_CONTACT_ENDPOINT: ${{ secrets.PUBLIC_CONTACT_ENDPOINT }}
-
-      - name: Disable internal API for static Pages
-        if: ${{ !!secrets.PUBLIC_CONTACT_ENDPOINT }}
-        run: |
-          echo "PUBLIC_CONTACT_ENDPOINT is set. Disabling internal API route for static build."
-          mv src/pages/api/contact.ts src/pages/api/contact.ts.disabled
+          PUBLIC_CONTACT_ENDPOINT: ${{ env.PUBLIC_CONTACT_ENDPOINT }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
