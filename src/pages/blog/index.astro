@@ -7,6 +7,7 @@ import type { CollectionEntry } from 'astro:content';
 
 const posts = (await getCollection('blog')) as CollectionEntry<'blog'>[];
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const base = import.meta.env.BASE_URL || '/';
 ---
 
 <BlogLayout title="Blog - Miguel Ángel" initialHash="#blog">
@@ -30,7 +31,7 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 			<ul class="alt">
 				{posts.map((post: CollectionEntry<'blog'>) => (
 					<li>
-						<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+						<a href={`${base}blog/${post.slug}`}>{post.data.title}</a>
 						{post.data.description ? <span> — {post.data.description}</span> : null}
 					</li>
 				))}

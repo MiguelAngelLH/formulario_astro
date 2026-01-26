@@ -1,3 +1,4 @@
 ---
-return Astro.redirect('/#about');
+const base = import.meta.env.BASE_URL || '/';
+return Astro.redirect(`${base}#about`);
 ---
