@@ -1,0 +1,19 @@
+---
+type Props = {
+  title: string;
+  imageSrc?: string;
+  imageAlt?: string;
+};
+
+const { title, imageSrc, imageAlt = title } = Astro.props;
+---
+
+<section class="box">
+	{imageSrc ? (
+		<span class="image left" style="max-width: 110px;">
+			<img src={imageSrc} alt={imageAlt} />
+		</span>
+	) : null}
+	<h3>{title}</h3>
+	<slot />
+</section>

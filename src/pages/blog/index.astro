@@ -1,0 +1,44 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+const posts = (await getCollection('blog')) as CollectionEntry<'blog'>[];
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BlogLayout title="Blog - Miguel Ángel" initialHash="#blog">
+	<Header
+		name="Miguel Ángel López Hernández"
+		tagline="Notas, proyectos y aprendizaje"
+		photoSrc="/images/MiFoto.jpg"
+		links={[
+			{ href: '/', label: 'Inicio' },
+			{ href: '/#work', label: 'Proyectos' },
+			{ href: '/#contact', label: 'Contacto' },
+		]}
+		slot="header"
+	/>
+
+	<article id="blog">
+		<h2 class="major">Blog</h2>
+		<p>Publicaciones sobre desarrollo, proyectos y aprendizaje.</p>
+
+		{posts.length ? (
+			<ul class="alt">
+				{posts.map((post: CollectionEntry<'blog'>) => (
+					<li>
+						<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+						{post.data.description ? <span> — {post.data.description}</span> : null}
+					</li>
+				))}
+			</ul>
+		) : (
+			<p>No hay posts todavía.</p>
+		)}
+	</article>
+
+	<Footer slot="footer" text="© Miguel Ángel López Hernández. Portfolio 2026." />
+</BlogLayout>

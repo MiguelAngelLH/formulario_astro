@@ -1,0 +1,48 @@
+---
+type Props = {
+  name: string;
+  tagline: string;
+  photoSrc: string;
+	links?: Array<{ href: string; label: string }>;
+};
+
+const {
+  name = 'Miguel Ángel López Hernández',
+  tagline = 'Desarrollador Full Stack & IoT | Ingeniero en Desarrollo y Gestión de Software',
+  photoSrc = '/images/MiFoto.jpg',
+  links,
+} = Astro.props;
+
+const navLinks =
+	links && links.length
+		? links
+		: [
+				{ href: '/#intro', label: 'Sobre Mí' },
+				{ href: '/#work', label: 'Proyectos' },
+				{ href: '/#about', label: 'Formación' },
+				{ href: '/#contact', label: 'Contacto' },
+			];
+---
+
+<header id="header">
+	<div class="logo" style="overflow: hidden; display: flex; align-items: center; justify-content: center;">
+		<img
+			src={photoSrc}
+			alt={name}
+			style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 15%; display: block;"
+		/>
+	</div>
+	<div class="content">
+		<div class="inner">
+			<h1>{name}</h1>
+			<p>{tagline}</p>
+		</div>
+	</div>
+	<nav>
+		<ul>
+			{navLinks.map((l) => (
+				<li><a href={l.href}>{l.label}</a></li>
+			))}
+		</ul>
+	</nav>
+</header>

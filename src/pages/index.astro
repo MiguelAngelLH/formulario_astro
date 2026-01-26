@@ -1,238 +1,209 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Card from '../components/Card.astro';
+
+const title = 'Miguel Ángel López Hernández - Portfolio';
 ---
 
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html lang="es">
-	<head>
-		<title>Miguel Ángel López Hernández - Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<BaseLayout title={title}>
+	<Header
+		name="Miguel Ángel López Hernández"
+		tagline="Desarrollador Full Stack & IoT | Ingeniero en Desarrollo y Gestión de Software"
+		photoSrc="/images/MiFoto.jpg"
+		slot="header"
+	/>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<!-- Intro -->
+	<article id="intro">
+		<h2 class="major">Sobre Mí</h2>
+		<span class="image right" style="max-width: 30%;"><img src="/images/MiFoto.jpg" alt="Miguel Ángel López Hernández" /></span>
+		<p>Soy un ingeniero en desarrollo de software apasionado por crear soluciones tecnológicas que generen un impacto real. Mi experiencia abarca desde el desarrollo web y móvil hasta la implementación de sistemas IoT y experiencias inmersivas con realidad virtual. Me especializo en construir aplicaciones escalables, intuitivas y orientadas al usuario, siempre con un enfoque en la calidad del código y el trabajo colaborativo.</p>
+		<p>💡 <strong>Mi misión:</strong> Transformar ideas en productos digitales que resuelvan problemas reales y mejoren la vida de las personas.</p>
+	</article>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo" style="overflow: hidden; display: flex; align-items: center; justify-content: center;">
-							<img
-								src="/images/MiFoto.jpg"
-								alt="Miguel Ángel López Hernández"
-								style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 15%; display: block;"
-							/>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Miguel Ángel López Hernández</h1>
-								<p>Desarrollador Full Stack & IoT | Ingeniero en Desarrollo y Gestión de Software</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">Sobre Mí</a></li>
-								<li><a href="#work">Proyectos</a></li>
-								<li><a href="#about">Formación</a></li>
-								<li><a href="#contact">Contacto</a></li>
-							</ul>
-						</nav>
-					</header>
+	<!-- Work -->
+	<article id="work">
+		<h2 class="major">Proyectos Destacados</h2>
+		<span class="image main"><img src="/images/pic02.jpg" alt="" /></span>
 
-				<!-- Main -->
-					<div id="main">
+		<Card title="🎓 exploraR - Plataforma de Orientación Vocacional VR" imageSrc="/images/img-projects/EXPLORAR.png">
+			<p>Aplicación móvil con realidad virtual para reducir la deserción universitaria.</p>
+			<p><strong>Tecnologías:</strong> React Native, Three.js, Node.js, MongoDB, Express.js</p>
+			<p><strong>Características:</strong> tours virtuales inmersivos, micro-vivencias académicas, testimonios 360°, panel admin, analytics.</p>
+		</Card>
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Sobre Mí</h2>
-								<span class="image right" style="max-width: 30%;"><img src="/images/MiFoto.jpg" alt="Miguel Ángel López Hernández" /></span>
-								<p>Soy un ingeniero en desarrollo de software apasionado por crear soluciones tecnológicas que generen un impacto real. Mi experiencia abarca desde el desarrollo web y móvil hasta la implementación de sistemas IoT y experiencias inmersivas con realidad virtual. Me especializo en construir aplicaciones escalables, intuitivas y orientadas al usuario, siempre con un enfoque en la calidad del código y el trabajo colaborativo.</p>
-								<p>💡 <strong>Mi misión:</strong> Transformar ideas en productos digitales que resuelvan problemas reales y mejoren la vida de las personas.</p>
-							</article>
+		<Card title="🛡️ SafeCheck School - Sistema de Detección de Alcohol" imageSrc="/images/img-projects/SAFECHECK.png">
+			<p>Plataforma web/móvil para detectar alcohol en estudiantes mediante IoT.</p>
+			<p><strong>Tecnologías:</strong> React, Node.js, MongoDB, ESP32, Sensores MQ-3</p>
+			<p><strong>Impacto:</strong> mejora la seguridad escolar mediante tecnología accesible y automatizada.</p>
+		</Card>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Proyectos Destacados</h2>
-								<span class="image main"><img src="/images/pic02.jpg" alt="" /></span>
-								<p><img src="/images/img-projects/EXPLORAR.png" alt="exploraR" style="width: 80px; height: auto; float: left; margin-right: 15px;" /><strong>🎓 exploraR - Plataforma de Orientación Vocacional VR:</strong> Aplicación móvil con realidad virtual para reducir la deserción universitaria. Tecnologías: React Native, Three.js, Node.js, MongoDB, Express.js. Características: Tours virtuales inmersivos, micro-vivencias académicas, testimonios 360°, panel admin, analytics.</p>
-								<p><img src="/images/img-projects/SAFECHECK.png" alt="SafeCheck School" style="width: 80px; height: auto; float: left; margin-right: 15px;" /><strong>🛡️ SafeCheck School - Sistema de Detección de Alcohol:</strong> Plataforma web/móvil para detectar alcohol en estudiantes mediante IoT. Tecnologías: React, Node.js, MongoDB, ESP32, Sensores MQ-3. Mejora la seguridad escolar.</p>
-								<p><img src="/images/img-projects/RECOU_LOGOTIPO_blanco.png" alt="RECOU" style="width: 80px; height: auto; float: left; margin-right: 15px;" /><strong>♻️ RECOU - Plataforma de Donación Solidaria:</strong> Sistema para reciclar PET/aluminio y apoyar prótesis. Tecnologías: JavaScript, PHP, MySQL. Conecta reciclaje con causas sociales.</p>
-								<p><img src="/images/img-projects/note-app.png" alt="Sistema de Registro" style="width: 80px; height: auto; float: left; margin-right: 15px;" /><strong>📱 Sistema de Registro de Entradas:</strong> App móvil para gestionar acceso estudiantil. Tecnologías: Flutter, SQLite. Reportes de asistencia.</p>
-							</article>
+		<Card title="♻️ RECOU - Plataforma de Donación Solidaria" imageSrc="/images/img-projects/RECOU_LOGOTIPO_blanco.png">
+			<p>Sistema para reciclar PET/aluminio y apoyar la creación de prótesis.</p>
+			<p><strong>Tecnologías:</strong> JavaScript, PHP, MySQL</p>
+			<p><strong>Impacto:</strong> conecta el reciclaje con causas sociales.</p>
+		</Card>
 
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">Formación y Tecnologías</h2>
-								<span class="image main"><img src="/images/pic03.jpg" alt="" /></span>
-								<p><strong>🎓 Formación Académica:</strong> Ingeniero en Desarrollo y Gestión de Software (Actual), TSU en Tecnologías de la Información (Concluido).</p>
-								<h3 class="major">Stack Tecnológico</h3>
-								<div class="tech-wrap">
-									<section class="tech-group">
-										<h4>Interfaz</h4>
-										<div class="tech-badges">
-											<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-react"></span>React</span>
-											<span class="tech-badge" style="--d: 80ms"><span class="icon brands fa-react"></span>React Native</span>
-											<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-mobile-alt"></span>Flutter</span>
-											<span class="tech-badge" style="--d: 240ms"><span class="icon solid fa-cube"></span>Three.js</span>
-											<span class="tech-badge" style="--d: 320ms"><span class="icon brands fa-js"></span>JavaScript</span>
-										</div>
-									</section>
+		<Card title="📱 Sistema de Registro de Entradas" imageSrc="/images/img-projects/note-app.png">
+			<p>App móvil para gestionar acceso estudiantil en instituciones.</p>
+			<p><strong>Tecnologías:</strong> Flutter, SQLite</p>
+			<p><strong>Características:</strong> registro entrada/salida, reportes de asistencia.</p>
+		</Card>
+	</article>
 
-									<section class="tech-group">
-										<h4>Backend</h4>
-										<div class="tech-badges">
-											<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-node-js"></span>Node.js</span>
-											<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-server"></span>Express.js</span>
-											<span class="tech-badge" style="--d: 160ms"><span class="icon brands fa-python"></span>Python</span>
-											<span class="tech-badge" style="--d: 240ms"><span class="icon brands fa-php"></span>PHP</span>
-										</div>
-									</section>
+	<!-- About -->
+	<article id="about">
+		<h2 class="major">Formación y Tecnologías</h2>
+		<span class="image main"><img src="/images/pic03.jpg" alt="" /></span>
+		<p><strong>🎓 Formación Académica:</strong> Ingeniero en Desarrollo y Gestión de Software (Actual), TSU en Tecnologías de la Información (Concluido).</p>
+		<h3 class="major">Stack Tecnológico</h3>
+		<div class="tech-wrap">
+			<section class="tech-group">
+				<h4>Interfaz</h4>
+				<div class="tech-badges">
+					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-react"></span>React</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon brands fa-react"></span>React Native</span>
+					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-mobile-alt"></span>Flutter</span>
+					<span class="tech-badge" style="--d: 240ms"><span class="icon solid fa-cube"></span>Three.js</span>
+					<span class="tech-badge" style="--d: 320ms"><span class="icon brands fa-js"></span>JavaScript</span>
+				</div>
+			</section>
 
-									<section class="tech-group">
-										<h4>Bases de datos</h4>
-										<div class="tech-badges">
-											<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-leaf"></span>MongoDB</span>
-											<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-database"></span>MySQL</span>
-											<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-database"></span>SQLite</span>
-										</div>
-									</section>
+			<section class="tech-group">
+				<h4>Backend</h4>
+				<div class="tech-badges">
+					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-node-js"></span>Node.js</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-server"></span>Express.js</span>
+					<span class="tech-badge" style="--d: 160ms"><span class="icon brands fa-python"></span>Python</span>
+					<span class="tech-badge" style="--d: 240ms"><span class="icon brands fa-php"></span>PHP</span>
+				</div>
+			</section>
 
-									<section class="tech-group">
-										<h4>IoT y hardware</h4>
-										<div class="tech-badges">
-											<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-microchip"></span>Arduino</span>
-											<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-wifi"></span>ESP32</span>
-										</div>
-									</section>
+			<section class="tech-group">
+				<h4>Bases de datos</h4>
+				<div class="tech-badges">
+					<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-leaf"></span>MongoDB</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-database"></span>MySQL</span>
+					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-database"></span>SQLite</span>
+				</div>
+			</section>
 
-									<section class="tech-group">
-										<h4>Herramientas y nube</h4>
-										<div class="tech-badges">
-											<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-git-alt"></span>Git</span>
-											<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-cloud"></span>Cloudinary</span>
-											<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-cubes"></span>Unity</span>
-										</div>
-									</section>
-								</div>
-								<p><strong>💼 Especialidades:</strong> Desarrollo Full Stack, Aplicaciones Móviles, Realidad Virtual, IoT, Arquitectura de Software.</p>
+			<section class="tech-group">
+				<h4>IoT y hardware</h4>
+				<div class="tech-badges">
+					<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-microchip"></span>Arduino</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-wifi"></span>ESP32</span>
+				</div>
+			</section>
 
-								<style>
-									.tech-group + .tech-group { margin-top: 1.75rem; }
-									.tech-group h4 { margin: 0 0 0.75rem 0; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; opacity: 0.9; }
-									.tech-badges {
-										display: flex;
-										flex-wrap: wrap;
-										gap: 0.75rem;
-									}
-									.tech-badge {
-										position: relative;
-										display: inline-flex;
-										align-items: center;
-										gap: 0.6rem;
-										padding: 0.55rem 0.9rem;
-										border: 1px solid rgba(255,255,255,0.35);
-										border-radius: 0.35rem;
-										background: rgba(255,255,255,0.04);
-										backdrop-filter: blur(6px);
-										-webkit-backdrop-filter: blur(6px);
-										letter-spacing: 0.12em;
-										text-transform: uppercase;
-										font-size: 0.7rem;
-										line-height: 1;
-										cursor: default;
-										transform: translateY(6px);
-										opacity: 0;
-										animation: techIn 520ms ease forwards;
-										animation-delay: var(--d, 0ms);
-									}
-									.tech-badge:before {
-										content: '';
-										position: absolute;
-										inset: 0;
-										border-radius: inherit;
-										background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.14) 45%, transparent 70%);
-										transform: translateX(-120%);
-										opacity: 0;
-										transition: transform 600ms ease, opacity 200ms ease;
-										pointer-events: none;
-									}
-									.tech-badge .icon {
-										width: 1.25em;
-										text-align: center;
-										transition: transform 260ms ease;
-									}
-									.tech-badge:hover {
-										transform: translateY(-2px) scale(1.03);
-										border-color: rgba(255,255,255,0.6);
-										background: rgba(255,255,255,0.07);
-										box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-									}
-									.tech-badge:hover:before { opacity: 1; transform: translateX(120%); }
-									.tech-badge:hover .icon { transform: rotate(-10deg) scale(1.15); }
-									@keyframes techIn {
-										to { opacity: 1; transform: translateY(0); }
-									}
-									@media (prefers-reduced-motion: reduce) {
-										.tech-badge { animation: none; opacity: 1; transform: none; }
-										.tech-badge:before { transition: none; }
-										.tech-badge .icon { transition: none; }
-									}
-								</style>
-							</article>
+			<section class="tech-group">
+				<h4>Herramientas y nube</h4>
+				<div class="tech-badges">
+					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-git-alt"></span>Git</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-cloud"></span>Cloudinary</span>
+					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-cubes"></span>Unity</span>
+				</div>
+			</section>
+		</div>
+		<p><strong>💼 Especialidades:</strong> Desarrollo Full Stack, Aplicaciones Móviles, Realidad Virtual, IoT, Arquitectura de Software.</p>
+	</article>
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contacto</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/miguelangel-lopez-551a163a5/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://github.com/MiguelAngelLH" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="mailto:miguelhdez0903@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</article>
+	<!-- Contact -->
+	<article id="contact">
+		<h2 class="major">Contacto</h2>
+		<form id="contact-form" method="post" action="/api/contact" novalidate>
+			<div class="fields">
+				<div class="field half">
+					<label for="name">Nombre</label>
+					<input type="text" name="name" id="name" autocomplete="name" required />
+				</div>
+				<div class="field half">
+					<label for="email">Correo</label>
+					<input type="email" name="email" id="email" autocomplete="email" required />
+				</div>
+				<div class="field">
+					<label for="subject">Asunto</label>
+					<input type="text" name="subject" id="subject" placeholder="Ej. Propuesta / Vacante / Colaboración" />
+				</div>
+				<div class="field">
+					<label for="message">Mensaje</label>
+					<textarea name="message" id="message" rows="4" required placeholder="Cuéntame en qué puedo ayudarte..."></textarea>
+				</div>
 
-					</div>
-
-					<footer id="footer">
-						<p class="copyright">&copy; Miguel Ángel López Hernández. Portfolio 2026.</p>
-					</footer>
-
+				<!-- Honeypot (anti-spam): debe quedarse vacío -->
+				<div class="field" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+					<label for="company">Company</label>
+					<input type="text" name="company" id="company" tabindex="-1" autocomplete="off" />
+				</div>
 			</div>
 
-		<!-- BG -->
-			<div id="bg"></div>
+			<p id="contact-status" class="form-status" hidden></p>
+			<ul class="actions">
+				<li><input id="contact-submit" type="submit" value="Enviar" class="primary" /></li>
+				<li><input type="reset" value="Limpiar" /></li>
+			</ul>
+		</form>
 
-		<!-- Scripts -->
-			<script src="/assets/js/jquery.min.js" is:inline></script>
-			<script src="/assets/js/browser.min.js" is:inline></script>
-			<script src="/assets/js/breakpoints.min.js" is:inline></script>
-			<script src="/assets/js/util.js" is:inline></script>
-			<script src="/assets/js/main.js" is:inline></script>
+		<script is:inline>
+			(function () {
+				var form = document.getElementById('contact-form');
+				var statusEl = document.getElementById('contact-status');
+				var submitBtn = document.getElementById('contact-submit');
+				var emailInput = document.getElementById('email');
+				if (!form || !statusEl || !submitBtn) return;
 
-	</body>
-</html>
+				function setStatus(kind, text) {
+					statusEl.hidden = false;
+					statusEl.classList.remove('is-success', 'is-error');
+					statusEl.classList.add(kind === 'success' ? 'is-success' : 'is-error');
+					statusEl.textContent = text;
+				}
+
+				form.addEventListener('submit', function (e) {
+					e.preventDefault();
+					statusEl.hidden = true;
+					var senderEmail = emailInput && emailInput.value ? String(emailInput.value) : '';
+
+					submitBtn.disabled = true;
+					var oldValue = submitBtn.value;
+					submitBtn.value = 'Enviando...';
+
+					fetch(form.action, {
+						method: 'POST',
+						body: new FormData(form),
+						headers: { 'accept': 'application/json' },
+					})
+						.then(function (r) { return r.json().catch(function () { return null; }).then(function (j) { return { ok: r.ok, data: j }; }); })
+						.then(function (res) {
+							var data = res && res.data ? res.data : null;
+							if (res.ok && data && data.ok) {
+								var baseMsg = data.message || '¡Listo! Tu mensaje fue enviado.';
+								if (senderEmail) baseMsg = baseMsg + ' Te responderé a: ' + senderEmail;
+								setStatus('success', baseMsg);
+								form.reset();
+								return;
+							}
+							setStatus('error', (data && data.message) ? data.message : 'No se pudo enviar. Intenta más tarde.');
+						})
+						.catch(function () {
+							setStatus('error', 'No se pudo enviar. Revisa tu conexión e intenta de nuevo.');
+						})
+						.finally(function () {
+							submitBtn.disabled = false;
+							submitBtn.value = oldValue;
+						});
+				});
+			})();
+		</script>
+
+		<ul class="icons">
+			<li><a href="https://www.linkedin.com/in/miguelangel-lopez-551a163a5/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+			<li><a href="https://github.com/MiguelAngelLH" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			<li><a href="mailto:miguelhdez0903@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+		</ul>
+	</article>
+
+	<Footer slot="footer" text="© Miguel Ángel López Hernández. Portfolio 2026." />
+</BaseLayout>

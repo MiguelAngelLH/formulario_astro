@@ -1,0 +1,17 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+type Props = {
+  title: string;
+  lang?: string;
+  initialHash?: string;
+};
+
+const { title, lang, initialHash } = Astro.props;
+---
+
+<BaseLayout title={title} lang={lang} initialHash={initialHash}>
+	<slot name="header" slot="header" />
+	<slot />
+	<slot name="footer" slot="footer" />
+</BaseLayout>
