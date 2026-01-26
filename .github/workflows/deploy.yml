@@ -52,6 +52,12 @@ jobs:
           # Si usas un endpoint externo para contacto:
           PUBLIC_CONTACT_ENDPOINT: ${{ secrets.PUBLIC_CONTACT_ENDPOINT }}
 
+      - name: Disable internal API for static Pages
+        if: ${{ !!secrets.PUBLIC_CONTACT_ENDPOINT }}
+        run: |
+          echo "PUBLIC_CONTACT_ENDPOINT is set. Disabling internal API route for static build."
+          mv src/pages/api/contact.ts src/pages/api/contact.ts.disabled
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
