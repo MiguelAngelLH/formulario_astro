@@ -5,8 +5,9 @@ import Footer from '../components/Footer.astro';
 import Card from '../components/Card.astro';
 
 const title = 'Miguel Ángel López Hernández - Portfolio';
-const base = import.meta.env.BASE_URL || '/';
-const contactEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT || '/api/contact';
+const base = import.meta.env.BASE_URL;
+// FormSubmit.co - servicio gratuito para formularios estáticos
+const contactEndpoint = 'https://formsubmit.co/miguelhdez0903@gmail.com';
 ---
 
 <BaseLayout title={title}>
@@ -141,6 +142,11 @@ const contactEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT || '/api/contact
 				</div>
 			</div>
 
+			<!-- Configuración de FormSubmit -->
+			<input type="hidden" name="_subject" value="Nuevo mensaje desde tu portafolio" />
+			<input type="hidden" name="_captcha" value="false" />
+			<input type="hidden" name="_template" value="table" />
+
 			<p id="contact-status" class="form-status" hidden></p>
 			<ul class="actions">
 				<li><input id="contact-submit" type="submit" value="Enviar" class="primary" /></li>
@@ -153,7 +159,7 @@ const contactEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT || '/api/contact
 				var form = document.getElementById('contact-form');
 				var statusEl = document.getElementById('contact-status');
 				var submitBtn = document.getElementById('contact-submit');
-				var emailInput = document.getElementById('email');
+				
 				if (!form || !statusEl || !submitBtn) return;
 
 				function setStatus(kind, text) {
@@ -166,7 +172,15 @@ const contactEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT || '/api/contact
 				form.addEventListener('submit', function (e) {
 					e.preventDefault();
 					statusEl.hidden = true;
-					var senderEmail = emailInput && emailInput.value ? String(emailInput.value) : '';
+
+					var nameInput = document.getElementById('name');
+					var emailInput = document.getElementById('email');
+					var messageInput = document.getElementById('message');
+
+					if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+						setStatus('error', 'Por favor completa todos los campos obligatorios.');
+						return;
+					}
 
 					submitBtn.disabled = true;
 					var oldValue = submitBtn.value;
@@ -175,22 +189,20 @@ const contactEndpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT || '/api/contact
 					fetch(form.action, {
 						method: 'POST',
 						body: new FormData(form),
-						headers: { 'accept': 'application/json' },
+						headers: {
+							'Accept': 'application/json'
+						}
 					})
-						.then(function (r) { return r.json().catch(function () { return null; }).then(function (j) { return { ok: r.ok, data: j }; }); })
-						.then(function (res) {
-							var data = res && res.data ? res.data : null;
-							if (res.ok && data && data.ok) {
-								var baseMsg = data.message || '¡Listo! Tu mensaje fue enviado.';
-								if (senderEmail) baseMsg = baseMsg + ' Te responderé a: ' + senderEmail;
-								setStatus('success', baseMsg);
+						.then(function (response) {
+							if (response.ok) {
+								setStatus('success', '¡Gracias! Tu mensaje ha sido enviado exitosamente. Te responderé pronto a ' + emailInput.value);
 								form.reset();
-								return;
+							} else {
+								setStatus('error', 'Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.');
 							}
-							setStatus('error', (data && data.message) ? data.message : 'No se pudo enviar. Intenta más tarde.');
 						})
 						.catch(function () {
-							setStatus('error', 'No se pudo enviar. Revisa tu conexión e intenta de nuevo.');
+							setStatus('error', 'Error de conexión. Verifica tu internet e intenta nuevamente.');
 						})
 						.finally(function () {
 							submitBtn.disabled = false;
