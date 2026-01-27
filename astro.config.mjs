@@ -3,11 +3,11 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 // Configuración para GitHub Pages:
-// - Usa `SITE` y `BASE_PATH` si están definidos en entorno (GitHub Actions).
-// - Si no están definidos, funciona en desarrollo con valores por defecto.
 // - output: 'static' es necesario para GitHub Pages
+// - site: URL completa del sitio
+// - base: '/formulario_astro' siempre (consistente en dev y prod)
 export default defineConfig({
 	output: 'static',
-	site: process.env.SITE || undefined,
-	base: process.env.BASE_PATH || '/',
+	site: 'https://miguelangellh.github.io',
+	base: '/formulario_astro',
 });
