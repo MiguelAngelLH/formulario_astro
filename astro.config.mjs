@@ -2,12 +2,16 @@
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-// Configuración para GitHub Pages:
-// - output: 'static' es necesario para GitHub Pages
-// - site: URL completa del sitio
-// - base: '/formulario_astro' siempre (consistente en dev y prod)
+// Configuración dinámica:
+// - Para GitHub Pages: usa base '/formulario_astro'
+// - Para AWS u otros: usa base '/'
+// Usa la variable de entorno PUBLIC_DEPLOY_TARGET para determinar el ambiente
+const isGitHubPages = process.env.PUBLIC_DEPLOY_TARGET === 'github';
+
 export default defineConfig({
 	output: 'static',
-	site: 'https://miguelangellh.github.io',
-	base: '/formulario_astro',
+	site: isGitHubPages 
+		? 'https://miguelangellh.github.io'
+		: process.env.PUBLIC_SITE_URL || 'http://localhost:4321',
+	base: isGitHubPages ? '/formulario_astro' : '/',
 });

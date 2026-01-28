@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:github": "cross-env PUBLIC_DEPLOY_TARGET=github astro build",
+    "build:aws": "cross-env PUBLIC_DEPLOY_TARGET=aws astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -12,6 +14,7 @@
     "astro": "^5.16.15"
   },
   "devDependencies": {
-    "@types/node": "^22.13.4"
+    "@types/node": "^22.13.4",
+    "cross-env": "^10.1.0"
   }
 }
