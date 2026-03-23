@@ -1,3 +1,4 @@
+﻿
 /* Global tweaks on top of the Dimension template */
 
 /* Projects thumbnails inside paragraphs */
@@ -128,12 +129,14 @@
   }
 }
 
-/* ── Certificaciones ────────────────────────────────── */
+/* â”€â”€ Certificaciones â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
-/* Ajustar el contenedor de artículos para que crezca con el contenido */
+/* Ajustar el contenedor de artÃ­culos para que crezca con el contenido */
 #main article#certs {
-  width: min(94vw, 1200px) !important; /* Forzar el ancho más amplio */
-  max-height: none !important; /* Quitar límite de altura para que el scroll sea del navegador/template */
+  width: min(94vw, 1200px) !important; /* Forzar el ancho mÃ¡s amplio */
+  max-height: none !important; /* Quitar lÃmite de altura para que el scroll 
+sea del navegador/template */
   overflow: visible !important;
   display: flex;
   flex-direction: column;
@@ -189,7 +192,7 @@
   white-space: nowrap !important;
 }
 
-/* ── Cuadrícula de miniaturas ── */
+/* â”€â”€ CuadrÃ­cula de miniaturas â”€â”€ */
 .cert-img-strip {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -198,7 +201,7 @@
 }
 
 .cert-img-thumb {
-  all: unset; /* Limpiar estilos de botón por defecto */
+  all: unset; /* Limpiar estilos de botÃ³n por defecto */
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -227,7 +230,7 @@
   display: block;
 }
 
-/* ── Botones de PDF ── */
+/* â”€â”€ Botones de PDF â”€â”€ */
 .cert-pdf-pills {
   display: flex;
   flex-wrap: wrap;
@@ -253,7 +256,7 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Módulos colapsables */
+/* MÃ³dulos colapsables */
 .cert-modules {
   width: 100%;
 }
@@ -265,7 +268,7 @@
   font-size: 0.9rem;
 }
 
-/* Forzar que el visor esté por encima de todo */
+/* Forzar que el visor estÃ© por encima de todo */
 .cv-root {
   z-index: 10000;
 }
@@ -274,7 +277,8 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at 50% 120%, rgba(255,255,255,0.14), transparent 65%);
+  background: radial-gradient(circle at 50% 120%, rgba(255,255,255,0.14), 
+transparent 65%);
   opacity: 0;
   transition: opacity 280ms ease;
   pointer-events: none;
@@ -316,7 +320,7 @@
   padding: 0.3rem 0.68rem;
 }
 
-/* Módulos colapsables */
+/* MÃ³dulos colapsables */
 .cert-modules { margin-top: 0.1rem; }
 .cert-modules > summary {
   cursor: pointer;
@@ -335,14 +339,15 @@
 .cert-modules > summary:hover { opacity: 1; }
 .cert-modules[open] > summary { opacity: 0.88; }
 .cert-modules > summary::after {
-  content: '▸';
+  content: 'â–¸';
   font-size: 0.62rem;
   margin-left: auto;
   transition: transform 220ms ease;
 }
 .cert-modules[open] > summary::after { transform: rotate(90deg); }
 
-/* ── Visor unificado ─────────────────────────────── */
+/* â”€â”€ Visor unificado â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes cvFadeIn  { from { opacity: 0; } to { opacity: 1; } }
 @keyframes cvSlideIn {
   from { opacity: 0; transform: scale(0.93) translateY(16px); }
@@ -353,7 +358,7 @@
 .cv-root {
   position: fixed;
   inset: 0;
-  z-index: 99999;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -422,38 +427,121 @@
   white-space: nowrap;
   transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
 }
+/* â”€â”€ Visor unificado â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.cv-root {
+  position: fixed;
+  inset: 0;
+  z-index: 10000 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
 
-.cv-body {
+.cv-root[hidden] {
+  display: none !important;
+}
+
+.cv-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.cv-shell {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 85vh;
+  background: #1b1f22;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+  animation: cvSlideIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cv-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cv-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 2rem;
+}
+
+.cv-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cv-btn, .cv-close {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cv-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cv-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
   flex: 1;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  background: #f3f4f6;
-  overflow: auto;
+  background: #0a0a0a;
+  overflow: hidden;
 }
 
 .cv-img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
+  max-width: 95%;
+  max-height: 95%;
   object-fit: contain;
-  object-position: center;
   border-radius: 0.4rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .cv-iframe {
-  display: block;
-  flex: 1 1 auto;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   border: none;
   background: #fff;
-  border-radius: 0.4rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  display: block !important;
 }
 
 .cv-iframe[hidden] {
@@ -496,13 +584,12 @@
 /* Media Queries para el visor */
 @media (max-width: 768px) {
   .cv-root { padding: 0.5rem; }
-  .cv-shell { width: 100%; height: 95vh; border-radius: 0.5rem; }
+  .cv-shell { height: 95vh; border-radius: 0.5rem; }
   .cv-btn span { display: none; }
   .cv-title { font-size: 0.8rem; }
-  .cv-body { padding: 0.5rem; }
 }
 
-/* Tarjetas con muchas imágenes ocupan el ancho completo del grid */
+/* Tarjetas con muchas imÃ¡genes ocupan el ancho completo del grid */
 @media (max-width: 900px) {
   #main article#certs { width: min(95vw, 760px); }
   .cert-grid { grid-template-columns: 1fr; }
@@ -519,8 +606,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cert-card { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .cert-card { animation: none !important; opacity: 1 !important; transform: 
+none !important; }
   .cv-shell, .cv-backdrop { animation: none; }
   .cert-img-thumb, .cert-pdf-pill { transition: none; }
   .cv-spinner { animation: spin 900ms linear infinite; }
 }
+
+
