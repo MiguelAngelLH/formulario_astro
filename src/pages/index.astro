@@ -8,78 +8,164 @@ const title = 'Miguel Ángel López Hernández - Portfolio';
 const base = import.meta.env.BASE_URL;
 // FormSubmit.co - servicio gratuito para formularios estáticos
 const contactEndpoint = 'https://formsubmit.co/miguelhdez0903@gmail.com';
+// Helper para construir URLs de certificados con encoding correcto
+const certPath = (file: string) => `${base}certificados/${file.split('/').map(encodeURIComponent).join('/')}`;
 ---
 
 <BaseLayout title={title}>
 	<Header
 		name="Miguel Ángel López Hernández"
-		tagline="Desarrollador Full Stack & IoT | Ingeniero en Desarrollo y Gestión de Software"
+		tagline="Full Stack Developer · React.js · Astro · Node.js · MongoDB · React Native · Three.js"
 		photoSrc="/images/MiFoto.jpg"
 		slot="header"
 	/>
 
-	<!-- Intro -->
+	<!-- Sobre mí -->
 	<article id="intro">
-		<h2 class="major">Sobre Mí</h2>
+		<h2 class="major">Sobre mí</h2>
 		<span class="image right" style="max-width: 200px; height: 200px; display: inline-block; overflow: hidden; border-radius: 8px;">
 			<img 
 				src={`${base}images/MiFoto.jpg`} 
-				alt="Miguel Ángel López Hernández" 
+				alt="Miguel Ángel López Hernández, Full Stack Developer"
 				style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;"
 			/>
 		</span>
-		<p>Soy un ingeniero en desarrollo de software apasionado por crear soluciones tecnológicas que generen un impacto real. Mi experiencia abarca desde el desarrollo web y móvil hasta la implementación de sistemas IoT y experiencias inmersivas con realidad virtual. Me especializo en construir aplicaciones escalables, intuitivas y orientadas al usuario, siempre con un enfoque en la calidad del código y el trabajo colaborativo.</p>
-		<p>💡 <strong>Mi misión:</strong> Transformar ideas en productos digitales que resuelvan problemas reales y mejoren la vida de las personas.</p>
+		<p>Soy Miguel Ángel, desarrollador Full Stack en México, especializado en la construcción de soluciones tecnológicas funcionales y orientadas a usuarios reales. He desarrollado aplicaciones web y móviles con impacto tangible, desde una plataforma de orientación vocacional con realidad virtual implementada a nivel institucional, hasta sistemas IoT con integración de hardware.</p>
+		<p>Trabajo de forma integral en todo el stack: frontend con React y Astro, backend con Node.js y MongoDB, además de entornos especializados como Three.js y Arduino. Me enfoco en construir productos robustos, escalables y listos para producción, no solo prototipos.</p>
 	</article>
 
-	<!-- Work -->
+	<!-- Proyectos Destacados -->
 	<article id="work">
 		<h2 class="major">Proyectos Destacados</h2>
-		<span class="image main"><img src={`${base}images/pic02.jpg`} alt="" /></span>
 
-		<Card title="🎓 exploraR - Plataforma de Orientación Vocacional VR" imageSrc="/images/img-projects/EXPLORAR.png">
-			<p>Aplicación móvil con realidad virtual para reducir la deserción universitaria.</p>
-			<p><strong>Tecnologías:</strong> React Native, Three.js, Node.js, MongoDB, Express.js</p>
-			<p><strong>Características:</strong> tours virtuales inmersivos, micro-vivencias académicas, testimonios 360°, panel admin, analytics.</p>
+		<!-- Proyecto 1: ExplorAR -->
+		<Card
+			title="ExplorAR — Plataforma de Orientación Vocacional VR"
+			imageSrc="/images/img-projects/EXPLORAR.png"
+			imageAlt="Logo de ExplorAR, plataforma de orientación vocacional con realidad virtual"
+		>
+			<p><small>Full Stack Developer &amp; VR &nbsp;·&nbsp; Sept 2025 – Dic 2025</small></p>
+			<p>Los estudiantes eligen carrera sin información real sobre qué implica cada una, lo que genera deserción universitaria.</p>
+			<p>Desarrollé una app móvil multiplataforma con tours virtuales 360° por carreras universitarias usando Three.js para experiencias inmersivas, con REST API propia en Node.js y MongoDB Atlas para contenido y analytics. Incluye panel administrativo web con dashboard de métricas de uso.</p>
+			<p><strong>Impacto:</strong> Piloto implementado institucionalmente en CUOH para la carrera de Derecho.</p>
+			<p class="card-stack">
+				<span class="tech-badge"><span class="icon brands fa-react"></span>React Native</span>
+				<span class="tech-badge"><span class="icon solid fa-mobile-screen-button"></span>Expo</span>
+				<span class="tech-badge"><span class="icon brands fa-node-js"></span>Node.js</span>
+				<span class="tech-badge"><span class="icon solid fa-server"></span>Express</span>
+				<span class="tech-badge"><span class="icon solid fa-leaf"></span>MongoDB Atlas</span>
+				<span class="tech-badge"><span class="icon solid fa-cube"></span>Three.js</span>
+				<span class="tech-badge"><span class="icon solid fa-cloud"></span>Cloudinary</span>
+			</p>
 		</Card>
 
-		<Card title="🛡️ SafeCheck School - Sistema de Detección de Alcohol" imageSrc="/images/img-projects/SAFECHECK.png">
-			<p>Plataforma web/móvil para detectar alcohol en estudiantes mediante IoT.</p>
-			<p><strong>Tecnologías:</strong> React, Node.js, MongoDB, ESP32, Sensores MQ-3</p>
-			<p><strong>Impacto:</strong> mejora la seguridad escolar mediante tecnología accesible y automatizada.</p>
+		<!-- Proyecto 2: GeoMap -->
+		<Card
+			title="GeoMap — Visualización Geoespacial Catastral"
+			imageAlt="GeoMap, herramienta de visualización de datos catastrales territoriales"
+		>
+			<p><small>Frontend Developer &amp; Arquitectura Web &nbsp;·&nbsp; Dic 2025</small></p>
+			<p>Los municipios no tienen una herramienta visual para gestionar y consultar eventos catastrales territoriales.</p>
+			<p>Construí una interfaz web responsiva con mapas interactivos, geolocalización y módulos CRUD con filtros dinámicos. Diseñé la estructura NoSQL para los datos territoriales.</p>
+			<p><strong>Resultado:</strong> Herramienta de apoyo para toma de decisiones municipales mediante visualización territorial.</p>
+			<p class="card-stack">
+				<span class="tech-badge"><span class="icon brands fa-html5"></span>HTML5</span>
+				<span class="tech-badge"><span class="icon brands fa-css3-alt"></span>CSS3</span>
+				<span class="tech-badge"><span class="icon brands fa-js"></span>JavaScript</span>
+				<span class="tech-badge"><span class="icon brands fa-bootstrap"></span>Bootstrap</span>
+				<span class="tech-badge"><span class="icon solid fa-leaf"></span>MongoDB</span>
+				<span class="tech-badge"><span class="icon solid fa-map-location-dot"></span>APIs de Mapas</span>
+			</p>
 		</Card>
 
-		<Card title="♻️ RECOU - Plataforma de Donación Solidaria" imageSrc="/images/img-projects/RECOU_LOGOTIPO_blanco.png">
-			<p>Sistema para reciclar PET/aluminio y apoyar la creación de prótesis.</p>
-			<p><strong>Tecnologías:</strong> JavaScript, PHP, MySQL</p>
-			<p><strong>Impacto:</strong> conecta el reciclaje con causas sociales.</p>
+		<!-- Proyecto 3: UniNest -->
+		<Card
+			title="UniNest — Búsqueda Segura de Alojamiento Universitario"
+			imageSrc="/images/img-projects/UNINEST.png"
+			imageAlt="Logo de UniNest, plataforma de búsqueda de alojamiento para estudiantes"
+		>
+			<p><small>Full Stack &amp; IoT Developer &nbsp;·&nbsp; Sept – Dic 2024</small></p>
+			<p>Los estudiantes foráneos no tienen una forma confiable y segura de encontrar alojamiento cerca de su universidad.</p>
+			<p>Desarrollé una plataforma web con autenticación, gestión de usuarios y listados verificados de arrendamiento con geolocalización. Integré un sistema de control de acceso físico mediante tarjetas RFID conectado al backend.</p>
+			<p class="card-stack">
+				<span class="tech-badge"><span class="icon brands fa-react"></span>React Native</span>
+				<span class="tech-badge"><span class="icon solid fa-leaf"></span>MongoDB</span>
+				<span class="tech-badge"><span class="icon solid fa-map-location-dot"></span>Google Maps API</span>
+				<span class="tech-badge"><span class="icon solid fa-id-card"></span>RFID</span>
+				<span class="tech-badge"><span class="icon solid fa-plug"></span>Backend REST</span>
+			</p>
 		</Card>
 
-		<Card title="📱 Sistema de Registro de Entradas" imageSrc="/images/img-projects/note-app.png">
-			<p>App móvil para gestionar acceso estudiantil en instituciones.</p>
-			<p><strong>Tecnologías:</strong> Flutter, SQLite</p>
-			<p><strong>Características:</strong> registro entrada/salida, reportes de asistencia.</p>
+		<!-- Proyecto 4: SafeCheck School -->
+		<Card
+			title="SafeCheck School — Control de Acceso Escolar con IoT"
+			imageSrc="/images/img-projects/SAFECHECK.png"
+			imageAlt="Logo de SafeCheck School, sistema de control de acceso con detección de alcohol"
+		>
+			<p><small>Full Stack &amp; IoT Developer &nbsp;·&nbsp; Ene – May 2024</small></p>
+			<p>Las instituciones educativas no tienen una forma automatizada de controlar accesos y detectar alcohol en el ingreso.</p>
+			<p>Desarrollé un sistema web y móvil con integración hardware-software usando Arduino y sensores MQ para detección de alcohol. La identificación de usuarios se realiza por código QR con un panel administrativo web para gestión de registros.</p>
+			<p class="card-stack">
+				<span class="tech-badge"><span class="icon brands fa-react"></span>React Native</span>
+				<span class="tech-badge"><span class="icon solid fa-leaf"></span>MongoDB</span>
+				<span class="tech-badge"><span class="icon solid fa-microchip"></span>Arduino</span>
+				<span class="tech-badge"><span class="icon solid fa-flask"></span>Sensores MQ</span>
+				<span class="tech-badge"><span class="icon solid fa-qrcode"></span>QR</span>
+				<span class="tech-badge"><span class="icon brands fa-bootstrap"></span>Bootstrap</span>
+			</p>
+		</Card>
+
+		<!-- Proyecto 5: ReCou — Hackathon UTEC -->
+		<Card
+			title="ReCou — Localizador de Centros de Donación"
+			imageSrc="/images/img-projects/RECOU_LOGOTIPO_blanco.png"
+			imageAlt="Logo de ReCou, localizador de centros de donación de PET y aluminio"
+		>
+			<p><small>Frontend &amp; Backend Developer &nbsp;·&nbsp; Nov 2023 · Hackathon UTEC</small></p>
+			<p>Las personas que quieren donar PET y aluminio para fabricación de prótesis no saben dónde hacerlo.</p>
+			<p>Construí una aplicación web para localizar centros de donación con enfoque en impacto social y ambiental comunitario.</p>
+			<p><strong>Resultado:</strong> Proyecto ganador del Hackathon UTEC.</p>
+			<p class="card-stack">
+				<span class="tech-badge"><span class="icon brands fa-js"></span>JavaScript</span>
+				<span class="tech-badge"><span class="icon brands fa-html5"></span>HTML5</span>
+				<span class="tech-badge"><span class="icon brands fa-python"></span>Python</span>
+				<span class="tech-badge"><span class="icon solid fa-database"></span>SQLite</span>
+				<span class="tech-badge"><span class="icon solid fa-palette"></span>Materialize CSS</span>
+				<span class="tech-badge"><span class="icon brands fa-bootstrap"></span>Bootstrap</span>
+			</p>
 		</Card>
 	</article>
 
-	<!-- About -->
+	<!-- Stack Tecnológico -->
 	<article id="about">
-		<h2 class="major">Formación y Tecnologías</h2>
-		<span class="image main"><img src={`${base}images/pic03.jpg`} alt="" /></span>
-		<p><strong>🎓 Formación Académica:</strong> Ingeniero en Desarrollo y Gestión de Software (Actual), TSU en Tecnologías de la Información (Concluido).</p>
-		<h3 class="major">Stack Tecnológico</h3>
+		<h2 class="major">Stack Tecnológico</h2>
+
 		<div class="tech-wrap">
+
+			<!-- Interfaz -->
 			<section class="tech-group">
 				<h4>Interfaz</h4>
 				<div class="tech-badges">
-					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-react"></span>React</span>
-					<span class="tech-badge" style="--d: 80ms"><span class="icon brands fa-react"></span>React Native</span>
-					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-mobile-alt"></span>Flutter</span>
-					<span class="tech-badge" style="--d: 240ms"><span class="icon solid fa-cube"></span>Three.js</span>
+					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-react"></span>React.js</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-rocket"></span>Astro</span>
+					<span class="tech-badge" style="--d: 160ms"><span class="icon brands fa-html5"></span>HTML5</span>
+					<span class="tech-badge" style="--d: 240ms"><span class="icon brands fa-css3-alt"></span>CSS3</span>
 					<span class="tech-badge" style="--d: 320ms"><span class="icon brands fa-js"></span>JavaScript</span>
+					<span class="tech-badge" style="--d: 400ms"><span class="icon solid fa-wind"></span>Tailwind CSS</span>
+					<span class="tech-badge" style="--d: 480ms"><span class="icon brands fa-bootstrap"></span>Bootstrap</span>
 				</div>
 			</section>
 
+			<!-- Mobile -->
+			<section class="tech-group">
+				<h4>Mobile</h4>
+				<div class="tech-badges">
+					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-react"></span>React Native</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-mobile-screen-button"></span>Expo</span>
+				</div>
+			</section>
+
+			<!-- Backend -->
 			<section class="tech-group">
 				<h4>Backend</h4>
 				<div class="tech-badges">
@@ -90,33 +176,400 @@ const contactEndpoint = 'https://formsubmit.co/miguelhdez0903@gmail.com';
 				</div>
 			</section>
 
+			<!-- Bases de datos -->
 			<section class="tech-group">
 				<h4>Bases de datos</h4>
 				<div class="tech-badges">
-					<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-leaf"></span>MongoDB</span>
+					<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-leaf"></span>MongoDB Atlas</span>
 					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-database"></span>MySQL</span>
 					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-database"></span>SQLite</span>
 				</div>
 			</section>
 
+			<!-- Inmersivo & IoT -->
 			<section class="tech-group">
-				<h4>IoT y hardware</h4>
+				<h4>Inmersivo &amp; IoT</h4>
 				<div class="tech-badges">
-					<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-microchip"></span>Arduino</span>
-					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-wifi"></span>ESP32</span>
+					<span class="tech-badge" style="--d: 0ms"><span class="icon solid fa-cube"></span>Three.js</span>
+					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-microchip"></span>Arduino</span>
+					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-wifi"></span>ESP32</span>
+					<span class="tech-badge" style="--d: 240ms"><span class="icon solid fa-flask"></span>Sensores MQ</span>
+					<span class="tech-badge" style="--d: 320ms"><span class="icon solid fa-id-card"></span>RFID</span>
+					<span class="tech-badge" style="--d: 400ms"><span class="icon solid fa-qrcode"></span>QR</span>
 				</div>
 			</section>
 
+			<!-- Cloud & DevOps -->
 			<section class="tech-group">
-				<h4>Herramientas y nube</h4>
+				<h4>Cloud &amp; DevOps</h4>
 				<div class="tech-badges">
-					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-git-alt"></span>Git</span>
+					<span class="tech-badge" style="--d: 0ms"><span class="icon brands fa-aws"></span>AWS</span>
 					<span class="tech-badge" style="--d: 80ms"><span class="icon solid fa-cloud"></span>Cloudinary</span>
-					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-cubes"></span>Unity</span>
+					<span class="tech-badge" style="--d: 160ms"><span class="icon solid fa-map-location-dot"></span>Google Maps API</span>
+					<span class="tech-badge" style="--d: 240ms"><span class="icon brands fa-git-alt"></span>Git</span>
+					<span class="tech-badge" style="--d: 320ms"><span class="icon brands fa-github"></span>GitHub</span>
 				</div>
 			</section>
+
 		</div>
-		<p><strong>💼 Especialidades:</strong> Desarrollo Full Stack, Aplicaciones Móviles, Realidad Virtual, IoT, Arquitectura de Software.</p>
+	</article>
+
+	<!-- Cursos y Certificaciones -->
+	<article id="certs">
+		<h2 class="major">Cursos y Certificaciones</h2>
+		<p>Formación verificable en plataformas oficiales. Haz clic en cualquier certificado para verlo al instante.</p>
+
+		<!-- Grid horizontal de tarjetas -->
+		<div class="cert-grid">
+
+			<!-- Amazon Web Services -->
+			<div class="cert-card">
+				<header class="cert-card-head">
+					<span class="icon brands fa-aws cert-icon"></span>
+					<h3>Amazon Web Services</h3>
+					<span class="cert-tag">Cursos oficiales</span>
+				</header>
+				<div class="cert-pdf-pills">
+					<button class="cert-pdf-pill" data-pdf={certPath('Amazon EC2 Basics.pdf')} data-label="Amazon EC2 Basics">
+						<span class="icon solid fa-file-pdf"></span>EC2 Basics
+					</button>
+					<button class="cert-pdf-pill" data-pdf={certPath('Getting Started with DevOps.pdf')} data-label="Getting Started with DevOps">
+						<span class="icon solid fa-file-pdf"></span>Getting Started with DevOps
+					</button>
+					<button class="cert-pdf-pill" data-pdf={certPath('Domain 3 Review AWS Certified Solutions.pdf')} data-label="Domain 3 Review — AWS Solutions Architect">
+						<span class="icon solid fa-file-pdf"></span>Solutions Architect
+					</button>
+					<button class="cert-pdf-pill" data-pdf={certPath('Official Practice Question Set AWS.pdf')} data-label="Official Practice Question Set — AWS">
+						<span class="icon solid fa-file-pdf"></span>Practice Question Set
+					</button>
+				</div>
+			</div>
+
+			<!-- MongoDB University -->
+			<div class="cert-card cert-card--mongo">
+				<header class="cert-card-head">
+					<span class="icon solid fa-leaf cert-icon cert-icon--mongo"></span>
+					<h3>MongoDB University</h3>
+					<span class="cert-tag cert-tag--official">Certificación oficial</span>
+				</header>
+				<div class="cert-pdf-pills">
+					<button class="cert-pdf-pill cert-pdf-pill--main" data-pdf={certPath('CERTIFICADOS/CERTIDICADO DE MONGO.pdf')} data-label="Certificado General MongoDB — Miguel Ángel López Hernández">
+						<span class="icon solid fa-award"></span>Ver Certificado Principal
+					</button>
+				</div>
+				<details class="cert-modules">
+					<summary><span class="icon solid fa-folder-open"></span>&nbsp;13 módulos completados</summary>
+					<div class="cert-pdf-pills cert-pdf-pills--sm">
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/Introduccion de mongo.pdf')} data-label="Introducción a MongoDB"><span class="icon solid fa-file-pdf"></span>Introducción</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/getting started with mongodb Atlas.pdf')} data-label="Getting Started with MongoDB Atlas"><span class="icon solid fa-file-pdf"></span>Atlas</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/Connecting to a MongoDB DataBase.pdf')} data-label="Connecting to a MongoDB Database"><span class="icon solid fa-file-pdf"></span>Connecting</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB and the Document Model.pdf')} data-label="MongoDB and the Document Model"><span class="icon solid fa-file-pdf"></span>Document Model</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB CRUP Operations Insert and Find Document.pdf')} data-label="CRUD — Insert & Find"><span class="icon solid fa-file-pdf"></span>Insert &amp; Find</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB CRUP Operations Modifying Query Results.pdf')} data-label="CRUD — Modifying Query Results"><span class="icon solid fa-file-pdf"></span>Query Results</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB CRUP Operations Replace and Detele Document.pdf')} data-label="CRUD — Replace & Delete"><span class="icon solid fa-file-pdf"></span>Replace &amp; Delete</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/Mongo DB Data MOdeling Intro.pdf')} data-label="Data Modeling Intro"><span class="icon solid fa-file-pdf"></span>Data Modeling</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB Aggregation.pdf')} data-label="Aggregation"><span class="icon solid fa-file-pdf"></span>Aggregation</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB Indexes.pdf')} data-label="Indexes"><span class="icon solid fa-file-pdf"></span>Indexes</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB Atlas Search.pdf')} data-label="Atlas Search"><span class="icon solid fa-file-pdf"></span>Atlas Search</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/MongoDB Transactions.pdf')} data-label="Transactions"><span class="icon solid fa-file-pdf"></span>Transactions</button>
+						<button class="cert-pdf-pill" data-pdf={certPath('CERTIFICADOS/CERTIDICADO DE MONGO.pdf')} data-label="Certificado General MongoDB"><span class="icon solid fa-file-pdf"></span>Cert. General</button>
+					</div>
+				</details>
+			</div>
+
+			<!-- freeCodeCamp -->
+			<div class="cert-card cert-card--fcc cert-card--wide">
+				<header class="cert-card-head">
+					<span class="icon solid fa-fire-flame-curved cert-icon cert-icon--fcc"></span>
+					<h3>freeCodeCamp</h3>
+					<span class="cert-tag cert-tag--official">Certificaciones oficiales</span>
+				</header>
+				<div class="cert-img-strip">
+					<button class="cert-img-thumb" data-src={certPath('JavaScript.png')} data-label="JavaScript Algorithms & Data Structures — freeCodeCamp">
+						<img src={certPath('JavaScript.png')} alt="Certificado JavaScript" loading="lazy" />
+						<span class="cert-img-thumb-label">JavaScript</span>
+					</button>
+					<button class="cert-img-thumb" data-src={certPath('html certificado.png')} data-label="HTML — freeCodeCamp">
+						<img src={certPath('html certificado.png')} alt="Certificado HTML" loading="lazy" />
+						<span class="cert-img-thumb-label">HTML</span>
+					</button>
+					<button class="cert-img-thumb" data-src={certPath('Diseño webresponsive-web-design-v9.png')} data-label="Responsive Web Design v9 — freeCodeCamp">
+						<img src={certPath('Diseño webresponsive-web-design-v9.png')} alt="Responsive Web Design v9" loading="lazy" />
+						<span class="cert-img-thumb-label">Responsive v9</span>
+					</button>
+					<button class="cert-img-thumb" data-src={certPath('diseño web adaptable heredado V8.png')} data-label="Diseño Web Adaptable Heredado V8 — freeCodeCamp">
+						<img src={certPath('diseño web adaptable heredado V8.png')} alt="Diseño Web Adaptable V8" loading="lazy" />
+						<span class="cert-img-thumb-label">Adaptable V8</span>
+					</button>
+				</div>
+			</div>
+
+			<!-- IA & Prompt Engineering -->
+			<div class="cert-card cert-card--ia cert-card--wide">
+				<header class="cert-card-head">
+					<span class="icon solid fa-brain cert-icon" style="color:#a78bfa"></span>
+					<h3>IA &amp; Prompt Engineering</h3>
+					<span class="cert-tag">Cursos complementarios</span>
+				</header>
+				<div class="cert-img-strip">
+					<button class="cert-img-thumb" data-src={certPath('Iniciacion al Desarrollo con IA.png')} data-label="Iniciación al Desarrollo con IA">
+						<img src={certPath('Iniciacion al Desarrollo con IA.png')} alt="Iniciación al Desarrollo con IA" loading="lazy" />
+						<span class="cert-img-thumb-label">Iniciación con IA</span>
+					</button>
+					<button class="cert-img-thumb" data-src={certPath('chatgpt for everyone.png')} data-label="ChatGPT for Everyone">
+						<img src={certPath('chatgpt for everyone.png')} alt="ChatGPT for Everyone" loading="lazy" />
+						<span class="cert-img-thumb-label">ChatGPT for Everyone</span>
+					</button>
+					<button class="cert-img-thumb" data-src={certPath('intro to prompt hacking.png')} data-label="Intro to Prompt Hacking">
+						<img src={certPath('intro to prompt hacking.png')} alt="Intro to Prompt Hacking" loading="lazy" />
+						<span class="cert-img-thumb-label">Intro Prompt Hacking</span>
+					</button>
+					<button class="cert-img-thumb" data-src={certPath('Advanced prompt hacking.png')} data-label="Advanced Prompt Hacking">
+						<img src={certPath('Advanced prompt hacking.png')} alt="Advanced Prompt Hacking" loading="lazy" />
+						<span class="cert-img-thumb-label">Advanced Prompt Hacking</span>
+					</button>
+				</div>
+				<div class="cert-pdf-pills">
+					<button class="cert-pdf-pill" data-pdf={certPath('Introduction to Generative AI - Art.pdf')} data-label="Introduction to Generative AI — Art">
+						<span class="icon solid fa-file-pdf"></span>Generative AI — Art
+					</button>
+				</div>
+			</div>
+
+			<!-- Idiomas -->
+			<div class="cert-card">
+				<header class="cert-card-head">
+					<span class="icon solid fa-language cert-icon" style="color:#60a5fa"></span>
+					<h3>Idiomas</h3>
+					<span class="cert-tag cert-tag--official">Certificación oficial</span>
+				</header>
+				<div class="cert-img-strip">
+					<button class="cert-img-thumb" data-src={certPath('diploma de Ingles A2.png')} data-label="Diploma de Inglés A2">
+						<img src={certPath('diploma de Ingles A2.png')} alt="Diploma de Inglés A2" loading="lazy" />
+						<span class="cert-img-thumb-label">Inglés A2</span>
+					</button>
+				</div>
+			</div>
+
+			<!-- Otros certificados -->
+			<div class="cert-card">
+				<header class="cert-card-head">
+					<span class="icon solid fa-certificate cert-icon" style="color:#fbbf24"></span>
+					<h3>Otros Certificados</h3>
+					<span class="cert-tag">Varios</span>
+				</header>
+				<div class="cert-img-strip">
+					<button class="cert-img-thumb" data-src={certPath('Captura de pantalla 2025-03-31 092920.png')} data-label="Certificado — Mar 2025">
+						<img src={certPath('Captura de pantalla 2025-03-31 092920.png')} alt="Certificado Mar 2025" loading="lazy" />
+						<span class="cert-img-thumb-label">Mar 2025</span>
+					</button>
+					<button class="cert-img-thumb" data-src={certPath('Captura de pantalla 2025-04-07 141049.png')} data-label="Certificado — Abr 2025">
+						<img src={certPath('Captura de pantalla 2025-04-07 141049.png')} alt="Certificado Abr 2025" loading="lazy" />
+						<span class="cert-img-thumb-label">Abr 2025</span>
+					</button>
+				</div>
+				<div class="cert-pdf-pills">
+					<button class="cert-pdf-pill" data-pdf={certPath('certificate-3wzb2tucguho-1769187412.pdf')} data-label="Certificado (3wzb2tucguho)">
+						<span class="icon solid fa-file-pdf"></span>Cert. A
+					</button>
+					<button class="cert-pdf-pill" data-pdf={certPath('certificate-7jebjztermhb-1769185102.pdf')} data-label="Certificado (7jebjztermhb)">
+						<span class="icon solid fa-file-pdf"></span>Cert. B
+					</button>
+				</div>
+			</div>
+
+		</div><!-- /.cert-grid -->
+
+		<!-- Visor unificado: imágenes y PDFs inline -->
+		<div id="cert-viewer" class="cv-root" hidden role="dialog" aria-modal="true" aria-label="Visor de certificado">
+			<div class="cv-backdrop"></div>
+			<div class="cv-shell">
+				<div class="cv-toolbar">
+					<span class="cv-title"></span>
+					<div class="cv-actions">
+						<a class="cv-btn cv-open-tab" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir en nueva pestaña">
+							<span class="icon solid fa-arrow-up-right-from-square"></span>
+							<span>Nueva pestaña</span>
+						</a>
+					</div>
+					<button class="cv-close" aria-label="Cerrar">&#x2715;</button>
+				</div>
+				<div class="cv-body">
+					<div class="cv-loading">
+						<div class="cv-spinner"></div>
+						<span>Cargando…</span>
+					</div>
+					<img class="cv-img" src="" alt="" />
+					<iframe class="cv-iframe" src="" title="Visor de certificado PDF" hidden></iframe>
+				</div>
+			</div>
+		</div>
+
+		<script is:inline>
+			(function () {
+				/* ──── Visor (imagen + PDF) ──── */
+				var viewer   = document.getElementById('cert-viewer');
+				if (!viewer) return;
+				if (viewer.parentElement !== document.body) {
+					document.body.appendChild(viewer);
+				}
+				var pdfLoadTimer;
+				var cvTitle   = viewer.querySelector('.cv-title');
+				var cvClose   = viewer.querySelector('.cv-close');
+				var cvBackdrop = viewer.querySelector('.cv-backdrop');
+				var cvImg     = viewer.querySelector('.cv-img');
+				var cvIframe  = viewer.querySelector('.cv-iframe');
+				var cvLoading = viewer.querySelector('.cv-loading');
+				var cvOpenTab = viewer.querySelector('.cv-open-tab');
+
+				function showLoad() { if (cvLoading) cvLoading.hidden = false; }
+				function hideLoad() { if (cvLoading) cvLoading.hidden = true; }
+
+				function openViewer(type, src, label) {
+					cvTitle.textContent = label;
+					if (cvOpenTab) cvOpenTab.href = src;
+					showLoad();
+					if (type === 'img') {
+						cvIframe.hidden = true;
+						cvIframe.src = '';
+						cvImg.hidden = false;
+						cvImg.onload = hideLoad;
+						cvImg.onerror = hideLoad;
+						cvImg.src = src;
+						cvImg.alt = label;
+						if (cvImg.complete) hideLoad();
+					} else {
+						cvImg.hidden = true;
+						cvImg.src = '';
+						cvIframe.hidden = false;
+						clearTimeout(pdfLoadTimer);
+
+						if (src.toLowerCase().endsWith('.pdf')) {
+							cvIframe.src = src + '#view=FitH&toolbar=1&navpanes=0&scrollbar=1';
+						} else {
+							cvIframe.src = src;
+						}
+
+						cvIframe.onload = function() { clearTimeout(pdfLoadTimer); hideLoad(); };
+						/* Chrome no dispara onload en PDFs — ocultar spinner tras 4 s de espera */
+						pdfLoadTimer = setTimeout(hideLoad, 4000);
+					}
+					viewer.hidden = false;
+					document.body.style.overflow = 'hidden';
+				}
+
+				function closeViewer() {
+					viewer.hidden = true;
+					clearTimeout(pdfLoadTimer);
+					cvIframe.src = '';
+					cvImg.src = '';
+					cvImg.hidden = false;
+					cvIframe.hidden = true;
+					hideLoad();
+					document.body.style.overflow = '';
+				}
+
+				function swallowViewerClick(e) {
+					e.preventDefault();
+					e.stopPropagation();
+				}
+
+				function onViewerEscape(e) {
+					if (viewer.hidden || e.key !== 'Escape') return;
+					e.preventDefault();
+					e.stopPropagation();
+					if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+					closeViewer();
+				}
+
+				document.querySelectorAll('.cert-img-thumb').forEach(function (btn) {
+					btn.addEventListener('click', function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+						openViewer('img', btn.dataset.src, btn.dataset.label);
+					});
+				});
+				document.querySelectorAll('.cert-pdf-pill').forEach(function (btn) {
+					btn.addEventListener('click', function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+						openViewer('pdf', btn.dataset.pdf, btn.dataset.label);
+					});
+				});
+				viewer.addEventListener('click', function (e) {
+					if (!viewer.hidden) e.stopPropagation();
+				});
+				viewer.querySelector('.cv-shell').addEventListener('click', function (e) {
+					e.stopPropagation();
+				});
+				cvClose.addEventListener('click', function (e) {
+					swallowViewerClick(e);
+					closeViewer();
+				});
+				cvBackdrop.addEventListener('click', function (e) {
+					swallowViewerClick(e);
+					closeViewer();
+				});
+				window.addEventListener('keydown', onViewerEscape, true);
+				window.addEventListener('keyup', onViewerEscape, true);
+
+				/* ──── Animación de entrada de tarjetas (IntersectionObserver) ──── */
+				var cards = document.querySelectorAll('.cert-card');
+				if ('IntersectionObserver' in window) {
+					var io = new IntersectionObserver(function (entries) {
+						var delay = 0;
+						entries.forEach(function (entry) {
+							if (entry.isIntersecting) {
+								entry.target.style.setProperty('--cert-delay', delay + 'ms');
+								entry.target.classList.add('is-visible');
+								delay += 80;
+								io.unobserve(entry.target);
+							}
+						});
+					}, { threshold: 0.1 });
+					cards.forEach(function (card) { io.observe(card); });
+				} else {
+					/* Fallback sin IO */
+					cards.forEach(function (card) { card.classList.add('is-visible'); });
+				}
+
+				/* ──── Drag-to-scroll en strips de imágenes ──── */
+				document.querySelectorAll('.cert-img-strip').forEach(function (strip) {
+					var isDown = false;
+					var startX = 0;
+					var scrollLeft = 0;
+					var moved = false;
+
+					strip.addEventListener('mousedown', function (e) {
+						isDown = true;
+						moved = false;
+						strip.classList.add('is-dragging');
+						startX = e.pageX - strip.offsetLeft;
+						scrollLeft = strip.scrollLeft;
+					});
+					strip.addEventListener('mouseleave', function () {
+						isDown = false;
+						strip.classList.remove('is-dragging');
+					});
+					strip.addEventListener('mouseup', function () {
+						isDown = false;
+						strip.classList.remove('is-dragging');
+					});
+					strip.addEventListener('mousemove', function (e) {
+						if (!isDown) return;
+						e.preventDefault();
+						var x = e.pageX - strip.offsetLeft;
+						var walk = (x - startX) * 1.4;
+						if (Math.abs(walk) > 4) moved = true;
+						strip.scrollLeft = scrollLeft - walk;
+					});
+					/* Cancelar click en botones hijos si hubo arrastre */
+					strip.addEventListener('click', function (e) {
+						if (moved) e.stopPropagation();
+					}, true);
+				});
+			})();
+		</script>
 	</article>
 
 	<!-- Contact -->
